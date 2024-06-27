@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btnIniciar">AVANZAR</button>
+    <br>
+    <br>
+    <img id="slider" src="slider1.jpg" width="100%" height="20%" alt="">
+    <br>
+    <br>
+    <button id="btnRetroceder">RETROCEDER</button>
+    
+    
+</body>
+<script>
+
+    let imagen = document.getElementById("slider");
+    let intervalo;
+    let BotonIniciar = document.getElementById("btnIniciar");
+    let botonRetroceder = document.getElementById("btnRetroceder");
+    let contador=1;
+    BotonIniciar.addEventListener("click", fn_avanzar);
+    botonRetroceder.addEventListener("click",fn_retroceso);
+
+    function fn_avanzar(){
+        contador++;
+        let formatoImagen = "slider"+contador+".jpg";
+        imagen.setAttribute("src", formatoImagen);
+        console.log("Probando---- ");
+        
+
+        if (contador == 6){
+            contador=1;
+        }
+    }
+
+    function fn_retroceso(){
+        contador--;
+        let formatoImagen = "slider"+contador+".jpg";
+        imagen.setAttribute("src", formatoImagen);
+        console.log("Probando---- ");
+
+
+        if (contador == 0){
+            contador=5;
+        }
+    }
+   
+</script>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="btnIniciar">Iniciar</button>
+    <button type="button" id="btnDetener">Detener</button>
+    <h1 id="p_hora">
+    </h1>
+</body>
+<script>
+    let botonIniciar = document.getElementById("btnIniciar");
+    let botonDetener = document.getElementById("btnDetener");
+    let p_texto = document.getElementById("p_hora");
+    let temporizador;
+
+    botonIniciar.addEventListener("click", fn_iniciar);
+    botonDetener.addEventListener("click", fn_pausar);
+
+    function fn_iniciar(){
+        console.log("Inicia el intervalo");
+        temporizador = setInterval(fn_cargarReloj, 1000);
+    }
+
+    function fn_pausar(){
+        console.log("Detiene el intervalo")
+        clearInterval(temporizador);
+    }
+
+    function fn_cargarReloj(){
+        let hora = new Date();
+        p_texto.innerText= hora.toLocaleTimeString();
+        console.log("Cargando reloj")
+    }
+
+</script>
+</html>

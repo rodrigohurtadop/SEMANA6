@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btnMover">MOVER</button>
+    <button id="btnDetener">DETENER</button>
+    <button id="btnRetroceder">RETROCEDER</button>
+
+    <img id="imgPrueba" class="estilo1" src="futbol-libre.jpg" alt="" width="100px" height="100px">
+    <h1 id="posicionImagen">MENSAJE</h1>
+    <br>
+
+</body>
+<style>
+    .estilo1{
+        position: absolute;
+        margin-top: 50px;
+    }
+    #posicionImagen{margin-top: 130px;}
+
+ 
+</style>
+
+<script>
+
+    let imagen = document.getElementById("imgPrueba");
+    let botonMover = document.getElementById("btnMover");
+    let botonDetener = document.getElementById("btnDetener");
+    let botonRetroceder = document.getElementById("btnRetroceder");
+    let posicionImagen = document.getElementById("posicionImagen");
+    let intervalo;
+
+    botonMover.addEventListener("click", fn_mover);
+    botonDetener.addEventListener("click", fn_detener);
+    botonRetroceder.addEventListener("click", fn_retroceder);
+
+    let contador = 0;
+
+    function fn_mover(){
+        console.log("Se inicia el temporizador");
+        intervalo = setInterval(fn_cargarTemporizador, 100);
+    }
+
+    function fn_retroceder(){
+        console.log("Se retrocede gaaaa");
+        intervalo = setInterval(fn_cargarTemporizador, 50);
+    }
+
+    function fn_detener(){
+        console.log("Se detuvo el temporizador");
+        clearInterval(intervalo);
+    }
+
+    function fn_cargarTemporizador(){
+        console.log("Procesando----" + contador);
+        contador+=1;
+        imagen.style.left = contador+"px";
+        posicionImagen.innerText = "LEFT: "+ contador;
+    }
+
+</script>
+</html>
